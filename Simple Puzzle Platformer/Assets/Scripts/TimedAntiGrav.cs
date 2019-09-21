@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 //Code of Morgan Cividanes CPI211
+//Slightly modified by Jacob Hreshchyshyn CPI211
 public class TimedAntiGrav : MonoBehaviour
 //this script is to be attached to the antigravity pad
 {

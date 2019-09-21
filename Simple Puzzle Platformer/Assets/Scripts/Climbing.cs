@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Code of Alana Jordan CPI211
+//Slightly modified by Jacob Hreshchyshyn CPI211
 public class Climbing : MonoBehaviour
 {
     public Transform player; // the player object
