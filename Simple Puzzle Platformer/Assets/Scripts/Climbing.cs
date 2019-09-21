@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Climbing : MonoBehaviour
 {
-    Transform player; // the player object
+    public Transform player; // the player object
     bool inside = false; // inside or outside of the climbing zone
-    float heightFactor = 3.2f; // how tall the player character is
-
+    public float heightFactor = 3.2f; // how tall the player character is
+    public Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,16 +19,30 @@ public class Climbing : MonoBehaviour
     {
         if(Col.gameObject.tag == "Ladder")
         {
+            Debug.Log("It's working");
             // checks if player is outside of radius
             inside = !inside;
+        }
+    }
+    //Player exits ladder zone
+    private void OnTriggerExit(Collider Col)
+    {
+        if (Col.gameObject.tag == "Ladder")
+        {
+            Debug.Log("It's working");
+            // checks if player is outside of radius
+            inside = !inside;
+            rb.useGravity = true;
         }
     }
 
     // Updates every frame
     void Update()
     {
-        if(inside == true && Input.GetKeyDown("W"))
+        if(inside == true && Input.GetKey("w"))
         {
+            rb.useGravity = false;
+            rb.AddForce(transform.forward);
             player.transform.position += Vector3.up / heightFactor;
         }
     }
