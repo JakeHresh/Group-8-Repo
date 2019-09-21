@@ -9,6 +9,7 @@ public class MoveDoor : MonoBehaviour
     public float moveSpeedDivision = 180f;
     public float openDuration = 5f;
     public bool canOpen = false;
+    public bool canTakeKey = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,10 @@ public class MoveDoor : MonoBehaviour
         {
             movingDoor.transform.position += Vector3.up/moveSpeedDivision;
             openDuration -= Time.deltaTime;
+        }
+        if(canTakeKey)
+        {
+            canTakeKey = false;
         }
     }
 }

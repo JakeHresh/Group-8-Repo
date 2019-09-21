@@ -20,7 +20,6 @@ public class Climbing : MonoBehaviour
     {
         if(Col.gameObject.tag == "Ladder")
         {
-            Debug.Log("It's working");
             // checks if player is outside of radius
             inside = !inside;
         }
@@ -30,7 +29,6 @@ public class Climbing : MonoBehaviour
     {
         if (Col.gameObject.tag == "Ladder")
         {
-            Debug.Log("It's working");
             // checks if player is outside of radius
             inside = !inside;
             rb.useGravity = true;
