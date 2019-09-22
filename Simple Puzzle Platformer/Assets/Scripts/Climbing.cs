@@ -46,7 +46,6 @@ public class Climbing : MonoBehaviour
         }
         if (inside && (Input.GetKey("a") || Input.GetKey("d") || Input.GetKey("s")))
         {
-            inside = false;
             rb.useGravity = true;
         }
     }
