@@ -12,13 +12,13 @@ public class Climbing : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Player enters ladder zone
     void OnTriggerEnter(Collider Col)
     {
-        if(Col.gameObject.tag == "Ladder")
+        if (Col.gameObject.tag == "Ladder")
         {
             // checks if player is outside of radius
             inside = !inside;
@@ -38,11 +38,16 @@ public class Climbing : MonoBehaviour
     // Updates every frame
     void Update()
     {
-        if(inside == true && Input.GetKey("w"))
+        if (inside == true && Input.GetKey("w"))
         {
             rb.useGravity = false;
             rb.AddForce(transform.forward);
             player.transform.position += Vector3.up / heightFactor;
+        }
+        if (inside && (Input.GetKey("a") || Input.GetKey("d") || Input.GetKey("s")))
+        {
+            inside = false;
+            rb.useGravity = true;
         }
     }
 }
