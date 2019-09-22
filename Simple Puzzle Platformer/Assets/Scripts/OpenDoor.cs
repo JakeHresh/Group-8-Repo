@@ -7,6 +7,8 @@ public class OpenDoor : MonoBehaviour
 {
     public GameObject player;
     Animation hingehere; // you're gonna need a collider in the map for this thing to  interact with
+    public AudioClip GateClip;
+    public AudioSource GateSource;
     //AudioSource locked;
     //AudioSource unlocked; for sound fx 
 
@@ -18,9 +20,15 @@ public class OpenDoor : MonoBehaviour
             {
                 Col.GetComponent<MoveDoor>().canOpen = true;
                 player.GetComponent<KeyBehavior>().keyCount--;
+                GateSource.Play();
                 //hingehere.Play();
                 //unlocked.Play();
             }
         }
+    }
+
+    private void Start()
+    {
+        GateSource.clip = GateClip;
     }
 }

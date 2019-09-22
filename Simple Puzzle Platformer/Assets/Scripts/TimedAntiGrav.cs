@@ -34,8 +34,11 @@ public class TimedAntiGrav : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         //we want to remove gravity slightly
-        Physics.gravity = new Vector3(0f, gravSet, 0f);
-        isFloating = true; //now the object is floating
+        if (other.gameObject.tag == "Player")
+        {
+            Physics.gravity = new Vector3(0f, gravSet, 0f);
+            isFloating = true; //now the object is floating 
+        }
     }
 }
 //end of program
