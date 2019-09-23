@@ -10,6 +10,7 @@ public class KeyBehavior : MonoBehaviour
     public AudioSource SFXSource;
     public int keyCount = 0;
     public Text keyDisplay;
+    public GameObject image;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class KeyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        keyDisplay.text = "Keys: " + keyCount.ToString();
+        keyDisplay.text = "Keys:";
     }
 
     private void OnTriggerEnter(Collider Col)
