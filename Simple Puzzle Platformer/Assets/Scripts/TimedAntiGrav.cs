@@ -10,9 +10,12 @@ public class TimedAntiGrav : MonoBehaviour
     bool isFloating = false; //initially false 
     public float gravSet = 3.0f; //positive gravity, therefore when gravity is revserved
     private float howLongStored;//Modified by Jacob Hreshchyshyn
+    public AudioClip GravClip;
+    public AudioSource GravSource;
     void Start()
     {
         howLongStored = howLong;//Modified by Jacob Hreshchyshyn
+        GravSource.clip = GravClip;
         //remains empty
     }
 
@@ -38,6 +41,7 @@ public class TimedAntiGrav : MonoBehaviour
         {
             Physics.gravity = new Vector3(0f, gravSet, 0f);
             isFloating = true; //now the object is floating 
+            GravSource.Play();
         }
     }
 }
